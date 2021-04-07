@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<style>
+    body{
+        background-color: #000000 !important;
+        background-image: linear-gradient(315deg, #000000 0%, #7f8c8d 74%) !important;
+    }
+    html {
+        background: #343a40 !important; /* fallback for old browsers */
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Create new profile</title>
+    <!--    <link rel="stylesheet" href="https://igoradamenko.github.io/awsm.css/css/awsm.min.css">-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom-style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+    <th:block th:include="/navBar"></th:block>
+</head>
+
+<body>
+<div class="form-1-container section-container">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-10 offset-md-1 form-1-box wow fadeInUp">
+                <!--/*@thymesVar id="teacher" type="pl.koper.swsapp.model.projection.TeacherWriteModel"*/-->
+                <form action="#" method="post" th:action="@{/teachers/add_teacher}" th:object="${teacher}">
+
+                    <fieldset class="form-group border p-3">
+                        <legend class="myLegend w-auto px-2">TEACHER'S CREDENTIALS</legend>
+                        <div class="form-group">
+                            <label class="myLabel">Academic title:</label>
+                            <input class="form-control" placeholder="np: dr. inż" th:field="${teacher.degree}"
+                                   type="text">
+                        </div>
+                        <div class="form-group">
+                            <label class="myLabel">Name:</label>
+                            <input class="form-control" placeholder="Write Your name" th:field="${teacher.name}"
+                                   type="text">
+                        </div>
+                        <div class="form-group">
+                            <label class="myLabel">Surname:</label>
+                            <input class="form-control"  placeholder="Write Your Surname"
+                                   th:field="${teacher.surname}" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label class="myLabel">Email:</label>
+                            <input class="form-control" placeholder="xxxxxxx.xxxxx.@wat.edu.pl"
+                                   th:field="${teacher.emails}" type="email">
+                        </div>
+                    </fieldset>
+                    <!-- User's Preferences  -->
+                    <fieldset class="form-group border p-3" th:each="subject,subjectStat: *{subjects}">
+                        <legend class="myLegend w-auto px-2" th:text="|Subject ${subjectStat.index +1}|"></legend>
+                        <div class="form-group">
+                            <label class="myLabel">Subject name:</label>
+                            <input class="form-control" placeholder="Enter subject name"
+                                   th:field="*{subjects[__${subjectStat.index}__].lesson}"
+                                   type="text">
+                        </div>
+                        <div>
+                            <button class="btn btn-primary btn-sm mb-3" name="addNext3" type="submit">Add Subject
+                            </button>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-group border p-3" th:each="consultation,consultationStat: *{consultations}">
+                        <legend class="myLegend w-auto px-2" th:text="|Consultation ${consultationStat.index +1}|"></legend>
+                        <div class="form-group">
+                            <label>Consultations date:</label>
+                            <input class="form-control" placeholder="pon, 15:00-15:45"
+                                   th:field="*{consultations[__${consultationStat.index}__].time}"
+                                   type="text">
+                        </div>
+                        <div>
+                            <button class="btn btn-primary btn-sm mb-3" name="addNext2" type="submit">Add Consultation
+                            </button>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset class="form-group border p-3" th:each="thesis,thesisStat: *{thesis}">
+                        <legend class="myLegend w-auto px-2" th:text="|Thesis ${thesisStat.index +1}|"></legend>
+                        <div class="form-group">
+                            <label class="myLabel">Type:</label>
+                            <input class="form-control" placeholder="Inżynierska/magisterska"
+                                   th:field="*{thesis[__${thesisStat.index}__].type}"
+                                   type="text">
+                        </div>
+                        <div class="form-group">
+                            <label class="myLabel">Topic:</label>
+                            <input class="form-control" placeholder="Write thesis topic"
+                                   th:field="*{thesis[__${thesisStat.index}__].topic}"
+                                   type="text">
+                        </div>
+                        <div class="form-group">
+                            <label class="myLabel">Description:</label>
+                            <input class="form-control" placeholder="Write short description"
+                                   th:field="*{thesis[__${thesisStat.index}__].description}"
+                                   type="text">
+                        </div>
+                        <div>
+                            <button class="btn btn-primary btn-sm mb-3" name="addNext" type="submit">Add Thesis
+                            </button>
+                        </div>
+                    </fieldset>
+
+                    <!-- Submit Button  -->
+                    <div class="form-group row text-right">
+                        <div class="col">
+                            <button class="btn btn-primary btn-customized bg-success" type="submit">Add Profile</button>
+                            <button class="btn btn-primary btn-customized bg-danger" type="reset">Clear</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

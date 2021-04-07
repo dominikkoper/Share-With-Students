@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="jquery-3.5.1.min.js"></script>
+    <meta charset="UTF-8">
+    <title>All Thesis</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom-style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+    <th:block th:include="/navBar"></th:block>
+</head>
+<body>
+<div class="container my-2">
+    <table border="1"    class = "table table-striped table-dark" >
+        <th class ="tableName"> Thesis List</th>
+    </table>
+
+    <table border="1" class = "table table-striped table-dark">
+        <thead>
+        <tr>
+            <th class="text-center"> Type</th>
+            <th class="text-center"> Topic </th>
+            <th class="text-center"> Description </th>
+            <th class="text-center"> Teacher</th>
+            <th class="text-center"> Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  th:each="thesis : ${listThesis}">
+            <td class="text-center" th:text="${thesis.type}"></td>
+            <td class="text-center" th:text="${thesis.topic}"></td>
+            <td class="text-center" th:text="${thesis.description}"></td>
+            <td class="text-center">
+                <a  th:href="@{'/teachers/'+${thesis.teacher.id}}" class="btn btn-primary btn-sm mb-3">View Profile</a>
+            </td>
+            <td class="text-center">
+                <a  th:if="${thesis.reserved==false}" th:href="@{'/thesis/reserve/'+${thesis.id}}" sec:authorize="hasAnyRole('TEACHER','ADMIN', 'STUDENT')" class="btn btn-primary btn-sm mb-3" name="reserve" id="reserve">Reserve</a>
+                <a  th:if="${thesis.reserved==false}" class="btn btn-success btn-sm mb-3" id="available">Available</a>
+                <a  th:if="${thesis.reserved==true}" class="btn btn-danger btn-sm mb-3" id="reserved">Reserved</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script tag> </script>
+</body>
+</html>

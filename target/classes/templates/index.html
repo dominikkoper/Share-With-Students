@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<style>
+   body {
+       background: url("backG.jpg") no-repeat center center fixed !important;
+       -webkit-background-size: cover !important;
+       -moz-background-size: cover !important;
+       background-size: cover !important;
+
+   }
+</style>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/custom-style.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+
+<head>
+    <meta charset="UTF-8">
+    <th:block th:include="/navBar"></th:block>
+</head>
+<body >
+<div class="text-container">
+    <h5>Welcome on the website</h5>
+    <p class="text-container2" >
+        This website was created as a part of engineering thesis. </br>
+        You can check all information about teachers and thesis. </br>
+        For more options, please sign up.</p>
+
+    <!--/*@thymesVar id="message" type="String"*/-->
+    <h2 th:if="${message !=null}" th:text="${message}"></h2>
+</div>
+</body>
+</html>
+

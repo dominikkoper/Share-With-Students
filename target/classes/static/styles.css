@@ -1,0 +1,151 @@
+body{
+    background: url("back.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+
+
+}
+
+.file{
+    color: white !important;
+}
+h1 {
+    text-align: center;
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;
+    font-size: 50px !important;
+    color: white;
+}
+.text-center
+{
+    font-size: 20px !important;
+
+}
+.tableName{
+    text-align: center;
+    font-size: 40px;
+}
+
+.text-container{
+    margin-left:  45%;
+    posiotion: absolute;
+    margin-top: 200px;
+    color: whitesmoke;
+    margin-right: 10%;
+}
+.text-container h5
+{
+    font-size: 70px;
+}
+.text-container p{
+    font-size: 30px;
+}
+
+.text-container h2
+{
+    font-size: 50px;
+    margin-top: 40px;
+    color: darkred;
+}
+
+.form-1-box {
+    padding-top: 30px;
+    text-align: left;
+}
+
+.myLegend{
+    color: white !important;
+}
+.form-group{
+    color: white !important;
+}
+.form-1-box legend {
+    font-size: inherit;
+    line-height: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #555;
+}
+
+.form-1-box .form-check-label {
+    line-height: 1.5;
+    vertical-align: top;
+}
+
+.form-1-box input[type="text"],
+.form-1-box input[type="email"] {
+    background-color: white;
+    border: 2px solid #343a40;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #888;
+    box-shadow: none;
+}
+
+.form-1-box input[type="text"]:focus,
+.form-1-box input[type="email"]:focus {
+    outline: 0;
+    background: none;
+    border: 1px solid #db5d50;
+    box-shadow: none;
+}
+
+.form-1-box input[type="text"]::-moz-placeholder,
+.form-1-box input[type="email"]::-moz-placeholder {
+    color: #bbb;
+    font-style: italic;
+}
+
+.form-1-box input[type="text"]:-ms-input-placeholder,
+.form-1-box input[type="email"]:-ms-input-placeholder {
+    color: #bbb;
+    font-style: italic;
+}
+
+.form-1-box input[type="text"]::-webkit-input-placeholder,
+.form-1-box input[type="email"]::-webkit-input-placeholder{
+    color: #bbb;
+    font-style: italic;
+}
+
+.form-1-box button.btn-customized {
+    margin-top: 1rem;
+    padding: .75rem 1.5rem;
+    border: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    box-shadow: none;
+}
+
+.form-1-box button.btn-customized:hover,
+.form-1-box button.btn-customized:active,
+.form-1-box button.btn-customized:focus,
+.form-1-box button.btn-customized:active:focus,
+.form-1-box button.btn-customized.active:focus,
+.form-1-box button.btn.btn-primary:not(:disabled):not(.disabled):active,
+.form-1-box button.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
+    outline: 0;
+    border: 0;
+    color: #fff;
+    box-shadow: none;
+}
+h2 {
+    font-size: 30px !important;
+    text-align: center;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    color: white;
+}
+
+.tableName2{
+    text-align: center;
+    font-size: 25px;
+}
+
+
+
+
